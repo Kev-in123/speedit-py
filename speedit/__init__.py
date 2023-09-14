@@ -9,7 +9,8 @@ from time import perf_counter
 def speed(func):
     def wrapper(*args, **kwargs):
         start = perf_counter()
-        func(*args, **kwargs)
+        return_ = func(*args, **kwargs)
         end = perf_counter()
         print(f"Function \"{func.__name__}\" took {end-start} seconds to complete")
+        return return_
     return wrapper
